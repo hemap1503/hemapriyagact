@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f7ff"><title>EduGenie — AI Learning Assistant</title>
+  <link rel="stylesheet" href="{{ url_for('static', path='/style.css') }}">
+</head>
+<body>
+  <header class="topbar"><a class="brand" href="/"><span class="brand-mark">✦</span> EduGenie</a><span class="top-note">Your personal AI study companion</span></header>
+  <main class="shell">
+    <section class="hero"><div class="eyebrow"><span class="spark">✧</span> LEARN SMARTER, EVERY DAY</div><h1>What would you like to <span>learn?</span></h1><p>Ask questions, simplify concepts, create quizzes, summarize notes, or build a learning path.</p></section>
+    <section class="workspace" aria-label="Learning assistant">
+      <form id="study-form">
+        <label class="field-label" for="task">Choose a learning tool</label>
+        <div class="select-wrap"><select id="task" name="task"><option value="qa">Question & Answer</option><option value="explain">Explain a concept</option><option value="quiz">Generate a quiz</option><option value="summarize">Summarize notes</option><option value="learn/recommendations">Learning path</option></select><span>⌄</span></div>
+        <label class="field-label level-label" for="level">Learning level</label><select id="level" class="level-select"><option>Beginner</option><option>Intermediate</option><option>Advanced</option></select>
+        <label class="field-label" for="prompt">Your topic, question, or passage</label>
+        <textarea id="prompt" name="text" rows="7" maxlength="12000" placeholder="For example: Explain photosynthesis in simple words…" required></textarea>
+        <div class="form-foot"><span id="char-count">0 / 12000</span><button type="submit" id="submit-btn"><span>Generate response</span><b aria-hidden="true">→</b></button></div>
+      </form>
+      <section id="result-card" class="result-card" aria-live="polite" hidden><div class="result-head"><div><div class="result-kicker">YOUR LEARNING RESULT</div><h2 id="result-title">Response</h2></div><button id="copy-btn" class="copy-btn" type="button">Copy</button></div><div id="result-content" class="result-content"></div></section>
+      <div class="error" id="error" role="alert" hidden></div>
+    </section>
+    <section class="tips"><div class="tip-icon">✧</div><div><strong>Study tip</strong><p>Try one topic at a time. Ask follow-up questions to build understanding step by step.</p></div></section>
+    <footer>EduGenie <span>•</span> Built for curious minds</footer>
+  </main>
+  <script src="{{ url_for('static', path='/app.js') }}" defer></script>
+</body></html>

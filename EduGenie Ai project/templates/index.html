@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduGenie - AI Learning Assistant</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='style.css') }}">
+</head>
+<body>
+    <main class="app-shell">
+        <section class="hero">
+            <div>
+                <p class="eyebrow">AI-POWERED LEARNING ASSISTANT</p>
+                <h1>EduGenie</h1>
+                <p class="subtitle">
+                    Ask questions, simplify concepts, create quizzes, summarize text,
+                    and build a learning path.
+                </p>
+            </div>
+            <div class="hero-badge">Gemini + FastAPI</div>
+        </section>
+
+        <section class="card">
+            <form id="eduForm">
+                <label for="task">Choose a task</label>
+                <select id="task" name="task">
+                    <option value="qa">Ask a Question</option>
+                    <option value="explain">Explain a Topic</option>
+                    <option value="quiz">Generate Quiz</option>
+                    <option value="summarize">Summarize</option>
+                    <option value="learn">Recommend Learning Path</option>
+                </select>
+
+                <label for="inputText">Your input</label>
+                <textarea
+                    id="inputText"
+                    name="inputText"
+                    rows="9"
+                    placeholder="Type your question, topic, or educational passage here..."
+                    required
+                ></textarea>
+
+                <button id="submitButton" type="submit">
+                    <span id="buttonText">Get Result</span>
+                    <span id="spinner" class="spinner hidden"></span>
+                </button>
+            </form>
+        </section>
+
+        <section id="resultCard" class="card result-card hidden">
+            <div class="result-header">
+                <h2>Result</h2>
+                <button id="copyButton" class="secondary-button" type="button">Copy</button>
+            </div>
+            <div id="result"></div>
+        </section>
+
+        <footer>
+            EduGenie • Educational AI assistant
+        </footer>
+    </main>
+
+    <script src="{{ url_for('static', path='app.js') }}"></script>
+</body>
+</html>
